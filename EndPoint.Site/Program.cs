@@ -1,6 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Product_Store.Application.Interfaces.Contexts;
+using Product_Store.Persistence.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
+
+builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
+string contectionString = @"Data Source=DESKTOP-7FRVFH5\MSSQLSERVERLAB; Initial Catalog=Product_StoreDb; Integrated Security=True;TrustServerCertificate=True";
+builder.Services.AddEntityFrameworkSqlServer().AddDbContext<DataBaseContext>(option => option.UseSqlServer(contectionString));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

@@ -16,7 +16,7 @@ namespace Product_Store.Domain.Entities.Products
         public string ManufacturePhone { get; set; }
 
         public virtual Manufacture Manufacture { get; set; }
-        public long? ManufactureId { get; set; }
+        public int ManufactureId { get; set; }
 
     }
 }
